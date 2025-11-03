@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "titulo": "Hioki Sushi",
+    "destacado": true,
+    "tipo": "Japonesa",
+    "avaliacao": 4.9,
+    "descricao": "Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, temakis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!",
+    "capa": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800&h=400&fit=crop",
+    "cardapio": [
+      {
+        "id": 1,
+        "foto": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop",
+        "preco": 89.9,
+        "nome": "Combinado Sushi",
+        "descricao": "12 peças de sushi variados",
+        "porcao": "Serve 2 pessoas"
+      },
+      {
+        "id": 2,
+        "foto": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=400&h=300&fit=crop",
+        "preco": 45.9,
+        "nome": "Temaki Salmão",
+        "descricao": "Temaki recheado com salmão fresco",
+        "porcao": "1 unidade"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "La Dolce Vita Trattoria",
+    "destacado": false,
+    "tipo": "Italiana",
+    "avaliacao": 4.6,
+    "descricao": "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
+    "capa": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=400&fit=crop",
+    "cardapio": [
+      {
+        "id": 3,
+        "foto": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+        "preco": 59.9,
+        "nome": "Pizza Margherita",
+        "descricao": "Pizza tradicional italiana com molho de tomate, mussarela e manjericão",
+        "porcao": "Serve 2 pessoas"
+      },
+      {
+        "id": 4,
+        "foto": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop",
+        "preco": 49.9,
+        "nome": "Spaghetti Carbonara",
+        "descricao": "Massa ao molho carbonara cremoso",
+        "porcao": "1 porção"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Burger House",
+    "destacado": true,
+    "tipo": "Americana",
+    "avaliacao": 4.8,
+    "descricao": "Os melhores burgers artesanais da cidade! Carne suculenta, pães fresquinhos e ingredientes selecionados. Delivery rápido e embalagens que mantêm tudo quentinho e crocante. Peça já e satisfaça sua fome!",
+    "capa": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=800&h=400&fit=crop",
+    "cardapio": [
+      {
+        "id": 5,
+        "foto": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+        "preco": 35.9,
+        "nome": "Classic Burger",
+        "descricao": "Hambúrguer clássico com queijo, alface, tomate e molho especial",
+        "porcao": "1 unidade"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "Cantina do Nonno",
+    "destacado": false,
+    "tipo": "Italiana",
+    "avaliacao": 4.7,
+    "descricao": "Tradição italiana com receitas de família! Massas frescas, molhos caseiros e sobremesas irresistíveis. Tudo preparado com carinho e ingredientes de primeira qualidade.",
+    "capa": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&h=400&fit=crop",
+    "cardapio": [
+      {
+        "id": 6,
+        "foto": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400&h=300&fit=crop",
+        "preco": 54.9,
+        "nome": "Lasanha Bolonhesa",
+        "descricao": "Lasanha caseira com molho bolonhesa e queijos gratinados",
+        "porcao": "1 porção generosa"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Thai Spice",
+    "destacado": true,
+    "tipo": "Tailandesa",
+    "avaliacao": 4.9,
+    "descricao": "Explore os sabores exóticos da Tailândia! Pratos aromáticos, temperos autênticos e ingredientes frescos. Delivery rápido e cuidadoso. Experimente uma viagem gastronômica sem sair de casa!",
+    "capa": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=800&h=400&fit=crop",
+    "cardapio": [
+      {
+        "id": 7,
+        "foto": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop",
+        "preco": 42.9,
+        "nome": "Pad Thai",
+        "descricao": "Macarrão de arroz salteado com vegetais, amendoim e molho tamarindo",
+        "porcao": "1 porção"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "Churrascaria Boi na Brasa",
+    "destacado": false,
+    "tipo": "Brasileira",
+    "avaliacao": 4.5,
+    "descricao": "O melhor churrasco na sua casa! Carnes nobres, bem temperadas e grelhadas no ponto. Acompanhamentos tradicionais e entrega que mantém tudo quente e saboroso.",
+    "capa": "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&h=400&fit=crop",
+    "cardapio": [
+      {
+        "id": 8,
+        "foto": "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop",
+        "preco": 79.9,
+        "nome": "Picanha Completa",
+        "descricao": "500g de picanha grelhada com farofa, vinagrete e arroz",
+        "porcao": "Serve 2 pessoas"
+      }
+    ]
+  }
+]

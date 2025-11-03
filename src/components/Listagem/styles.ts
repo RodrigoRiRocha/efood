@@ -3,38 +3,40 @@ import styled from "styled-components";
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  padding: 40px 0;
-  max-width: 900px;
-  margin: 0 auto 40px auto;
+  gap: 48px 80px;
+  padding: 80px 0 120px 0;
+  max-width: 1024px;
+  margin: 0 auto;
+
+  @media (max-width: 1080px) {
+    padding: 80px 24px 120px 24px;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
 `;
 
 export const Card = styled.div`
   background: var(--cor-fundo-card);
-  overflow: hidden;
-  box-shadow: 0 2px 8px var(--cor-sombra);
+  border: 1px solid var(--cor-primaria);
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 398px;
 `;
 
 export const Imagem = styled.img`
   width: 100%;
-  height: 220px; /* altura fixa para não alterar o tamanho dos cards */
+  height: 217px;
   object-fit: cover;
   display: block;
-  flex-shrink: 0;
-  cursor: pointer;
-
-  @media (max-width: 600px) {
-    height: 160px;
-  }
 `;
 
 export const Tags = styled.div`
   position: absolute;
   top: 16px;
-  right: 8px;
+  right: 16px;
   display: flex;
   gap: 8px;
 `;
@@ -42,56 +44,66 @@ export const Tags = styled.div`
 export const Tag = styled.span`
   background: var(--cor-tag);
   color: var(--cor-tag-texto);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
   font-size: 12px;
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 4px 8px;
+  line-height: 14.06px;
+  padding: 6px 4px;
 `;
 
 export const Conteudo = styled.div`
-  padding: 16px;
-  position: relative;
-  border-bottom: 1px solid var(--cor-primaria);
-  border-left: 1px solid var(--cor-primaria);
-  border-right: 1px solid var(--cor-primaria);
-  height: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 `;
 
 export const Titulo = styled.h2`
   color: var(--cor-titulo-card);
-  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 21.09px;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
 export const Nota = styled.span`
-  color: var(--cor-nota);
-  font-weight: bold;
-  font-size: 16px;
-  margin-left: 8px;
+  color: var(--cor-primaria);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21.09px;
   display: flex;
   align-items: center;
+  gap: 8px;
 `;
 
 export const Descricao = styled.p`
   color: var(--cor-primaria);
-  font-size: 14px;
-  margin-bottom: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   font-size: 14px;
   line-height: 22px;
-  letter-spacing: 0%;
+  margin: 0;
 `;
 
 export const Botao = styled.button`
   background: var(--cor-botao);
   color: var(--cor-botao-texto);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.41px;
   border: none;
-  border-radius: 4px;
-  padding: 8px 16px;
-  font-weight: bold;
+  padding: 4px 6px;
   cursor: pointer;
-  margin-top: auto;
+  display: inline-block;
+  align-self: flex-start;
+
+  &:hover {
+    opacity: 0.9;
+  }
 `;

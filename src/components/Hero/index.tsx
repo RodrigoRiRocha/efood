@@ -15,12 +15,8 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <HeroContainer background={imagemFundo || fundoImg}>
-      <div>
-        <Logo src={logoImg} alt="Logo Efood" />
-      </div>
-      <div>
-        <Titulo>{titulo}</Titulo>
-      </div>
+      <Logo src={logoImg} alt="Logo Efood" />
+      <Titulo>{titulo}</Titulo>
     </HeroContainer>
   );
 };

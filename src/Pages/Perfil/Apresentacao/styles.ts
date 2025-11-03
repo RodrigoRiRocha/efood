@@ -1,49 +1,52 @@
 import styled from "styled-components";
 
 export const Container = styled.section<{ background: string }>`
-  width: 100vw;
+  width: 100%;
   height: 280px;
   background-image: url(${(p) => p.background});
   background-size: cover;
+  background-position: center;
   position: relative;
   display: flex;
-  align-items: flex-end;
-  padding: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  object-fit: cover;
-`;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 25px 0 32px 0;
 
-export const Overlay = styled.div`
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const Content = styled.div`
   position: relative;
   z-index: 2;
-  color: #fff;
-  max-width: 1366px;
+  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 export const Category = styled.span`
-  display: block;
+  font-family: 'Roboto', sans-serif;
   font-weight: 100;
   font-size: 32px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  opacity: 0.95;
-  margin-bottom: 156px;
+  line-height: 37.5px;
+  color: #FFFFFF;
+  opacity: 0.5;
 `;
 
 export const Title = styled.h1`
-  margin: 0;
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 32px;
-  line-height: 100%;
-  letter-spacing: 0%;
+  line-height: 37.5px;
+  color: #FFFFFF;
+  margin: 0;
 `;

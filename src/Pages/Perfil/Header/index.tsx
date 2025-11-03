@@ -1,14 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useAppSelector, useAppDispatch } from '../../../store/hooks'
+import { selectCartItemsCount, toggleCart } from '../../../store/cartSlice'
 import logoImg from '../../../assets/logo_efood.png'
 import fundoImg from '../../../assets/fundo.png'
 import * as S from './styles'
 
-interface PerfilHeaderProps {
-  cartCount?: number
-}
+const PerfilHeader: React.FC = () => {
+  const dispatch = useAppDispatch()
+  const cartCount = useAppSelector(selectCartItemsCount)
 
-const PerfilHeader: React.FC<PerfilHeaderProps> = ({ cartCount = 0 }) => {
+  const handleCartClick = () => {
+    dispatch(toggleCart())
+  }
+
   return (
     <S.HeaderWrapper backgroundImage={fundoImg}>
       <S.HeaderContent>
@@ -16,7 +21,9 @@ const PerfilHeader: React.FC<PerfilHeaderProps> = ({ cartCount = 0 }) => {
         <Link to="/">
           <S.LogoImage src={logoImg} alt="efood" />
         </Link>
-        <S.CartInfo>{cartCount} produto(s) no carrinho</S.CartInfo>
+        <S.CartInfo onClick={handleCartClick} role="button" tabIndex={0}>
+          {cartCount} produto(s) no carrinho
+        </S.CartInfo>
       </S.HeaderContent>
     </S.HeaderWrapper>
   )

@@ -13,7 +13,6 @@ const Apresentacao: React.FC<Props> = ({ restaurant }) => {
 
   return (
     <S.Container background={background}>
-      <S.Overlay />
       <S.Content>
         <S.Category>{categoria}</S.Category>
         <S.Title>{titulo}</S.Title>

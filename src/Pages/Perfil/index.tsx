@@ -5,6 +5,8 @@ import PerfilHeader from "./Header";
 import Apresentacao from "./Apresentacao";
 import Produtos from "./Produtos";
 import FooterPerfil from "./Footer_Perfil";
+import Cart from "../../components/Cart";
+import restaurantesData from "../../data/restaurantes.json";
 
 const Container = styled.div`
   background-color: var(--cor-fundo-pagina);
@@ -18,6 +20,24 @@ const Perfil: React.FC = () => {
 
   useEffect(() => {
     let mounted = true;
+    
+    // OPÇÃO 1: Usar dados locais (comentar para usar API)
+    const load = () => {
+      if (!mounted) return;
+      const data = restaurantesData;
+      if (Array.isArray(data)) {
+        if (passedId != null) {
+          const found = data.find((r: any) => String(r.id) === String(passedId));
+          setRestaurant(found ?? data[0] ?? null);
+        } else {
+          setRestaurant(data[0] ?? null);
+        }
+      }
+    };
+    setTimeout(load, 300);
+
+    // OPÇÃO 2: Tentar API externa (descomentar quando API estiver funcionando)
+    /*
     const load = async () => {
       try {
         const res = await fetch("https://ebac-fake-api.vercel.app/api/efood/restaurantes");
@@ -34,9 +54,23 @@ const Perfil: React.FC = () => {
         }
       } catch (err) {
         console.error("Erro ao carregar restaurante:", err);
+        // Fallback para dados locais
+        if (mounted) {
+          const data = restaurantesData;
+          if (Array.isArray(data)) {
+            if (passedId != null) {
+              const found = data.find((r: any) => String(r.id) === String(passedId));
+              setRestaurant(found ?? data[0] ?? null);
+            } else {
+              setRestaurant(data[0] ?? null);
+            }
+          }
+        }
       }
     };
     load();
+    */
+    
     return () => {
       mounted = false;
     };
@@ -48,6 +82,7 @@ const Perfil: React.FC = () => {
       <Apresentacao restaurant={restaurant} />
       <Produtos restaurant={restaurant} />
       <FooterPerfil />
+      <Cart />
     </Container>
   );
 };

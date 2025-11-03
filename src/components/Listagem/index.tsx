@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "./styles";
 import RestauranteCard from "../RestauranteCard";
+import restaurantesData from "../../data/restaurantes.json";
 
 interface RestauranteAPI {
   id?: number | string;
@@ -26,6 +27,17 @@ const Listagem: React.FC = () => {
 
   useEffect(() => {
     let mounted = true;
+    
+    // OPÇÃO 1: Usar dados locais (comentar para usar API)
+    setTimeout(() => {
+      if (mounted) {
+        setRestaurantes(restaurantesData);
+        setLoading(false);
+      }
+    }, 500);
+
+    // OPÇÃO 2: Tentar API externa (descomentar quando API estiver funcionando)
+    /*
     const url = "https://ebac-fake-api.vercel.app/api/efood/restaurantes";
 
     (async () => {
@@ -38,10 +50,15 @@ const Listagem: React.FC = () => {
         }
       } catch (err) {
         console.error("Erro ao carregar restaurantes:", err);
+        // Fallback para dados locais em caso de erro
+        if (mounted) {
+          setRestaurantes(restaurantesData);
+        }
       } finally {
         if (mounted) setLoading(false);
       }
     })();
+    */
 
     return () => {
       mounted = false;

@@ -52,11 +52,6 @@ const Produtos: React.FC<Props> = ({ restaurant }) => {
     setActive(null);
   }
 
-  function handleAdd(item: any) {
-    console.log("adicionar", item);
-    handleClose();
-  }
-
   // se não houver items, mostra mensagem
   if (!restaurant) {
     return (
@@ -103,10 +98,10 @@ const Produtos: React.FC<Props> = ({ restaurant }) => {
           title: active?.nome ?? "",
           desc: active?.descricao ?? "",
           image: normalizeImage(active?.foto) || placeholderImg,
-          price: active?.preco ? `R$ ${active.preco}` : undefined,
+          price: active?.preco ? `R$ ${active.preco.toFixed(2)}` : undefined,
+          priceValue: active?.preco,
         }}
         onClose={handleClose}
-        onAdd={handleAdd}
       />
     </S.Wrapper>
   );
