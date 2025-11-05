@@ -19,6 +19,7 @@ export const Grid = styled.div`
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 `;
 
@@ -30,6 +31,10 @@ export const Card = styled.article`
   flex-direction: column;
   cursor: pointer;
   position: relative;
+  
+  @media (max-width: 600px) {
+    height: auto;
+  }
 `;
 
 export const Image = styled.img`
@@ -37,6 +42,10 @@ export const Image = styled.img`
   height: 167px;
   object-fit: cover;
   display: block;
+  
+  @media (max-width: 600px) {
+    height: 160px;
+  }
 `;
 
 export const CardContent = styled.div`
@@ -46,6 +55,10 @@ export const CardContent = styled.div`
   flex-direction: column;
   flex: 1;
   gap: 8px;
+  
+  @media (max-width: 600px) {
+    gap: 6px;
+  }
 `;
 
 export const Title = styled.h3`
@@ -69,6 +82,10 @@ export const Desc = styled.p`
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  
+  @media (max-width: 600px) {
+    -webkit-line-clamp: 3;
+  }
 `;
 
 export const AddButton = styled.button`

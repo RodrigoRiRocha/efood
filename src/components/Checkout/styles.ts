@@ -23,6 +23,10 @@ export const Sidebar = styled.aside`
     width: 100%;
     max-width: 360px;
   }
+  
+  @media (max-width: 480px) {
+    padding: 24px 8px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -78,6 +82,11 @@ export const Row = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 34px;
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 `;
 
 export const Button = styled.button`

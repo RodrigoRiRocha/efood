@@ -12,6 +12,16 @@ export const Container = styled.section<{ background: string }>`
   justify-content: space-between;
   padding: 25px 0 32px 0;
 
+  @media (max-width: 768px) {
+    height: 240px;
+    padding: 20px 0 24px 0;
+  }
+
+  @media (max-width: 480px) {
+    height: 200px;
+    padding: 16px 0 20px 0;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -31,6 +41,10 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
 `;
 
 export const Category = styled.span`
@@ -40,6 +54,15 @@ export const Category = styled.span`
   line-height: 37.5px;
   color: #FFFFFF;
   opacity: 0.5;
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  @media (max-width: 480px) {
+    font-size: 22px;
+    line-height: 26px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -49,4 +72,13 @@ export const Title = styled.h1`
   line-height: 37.5px;
   color: #FFFFFF;
   margin: 0;
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  @media (max-width: 480px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
 `;

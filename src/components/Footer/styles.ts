@@ -6,6 +6,10 @@ export const Container = styled.footer`
   flex-direction: column;
   align-items: center;
   padding: 40px 0;
+
+  @media (max-width: 480px) {
+    padding: 24px 0;
+  }
 `
 
 export const Logo = styled.img`
@@ -19,6 +23,10 @@ export const Social = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 80px;
+
+  @media (max-width: 480px) {
+    margin-bottom: 40px;
+  }
 `
 
 export const SocialIcon = styled.img`
@@ -37,4 +45,8 @@ export const Texto = styled.p`
   max-width: 480px;
   margin: 0;
   padding: 0 24px;
+  
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
 `

@@ -8,6 +8,14 @@ export const HeaderWrapper = styled.header<{ backgroundImage?: string }>`
   height: 186px;
   display: flex;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    height: 156px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 132px;
+  }
 `;
 
 export const HeaderContent = styled.div`
@@ -18,6 +26,10 @@ export const HeaderContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
 `;
 
 export const MenuLink = styled(Link)`
@@ -31,11 +43,25 @@ export const MenuLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 17px;
+  }
 `;
 
 export const LogoImage = styled.img`
   width: 125px;
   height: 57.5px;
+  
+  @media (max-width: 480px) {
+    width: 110px;
+    height: auto;
+  }
 `;
 
 export const CartInfo = styled.span`
@@ -48,5 +74,14 @@ export const CartInfo = styled.span`
   
   &:hover {
     text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  @media (max-width: 480px) {
+    font-size: 14px;
+    line-height: 17px;
   }
 `;
