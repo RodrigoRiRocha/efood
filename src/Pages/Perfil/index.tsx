@@ -21,26 +21,9 @@ const Perfil: React.FC = () => {
   useEffect(() => {
     let mounted = true;
     
-    // OPÇÃO 1: Usar dados locais (comentar para usar API)
-    const load = () => {
-      if (!mounted) return;
-      const data = restaurantesData;
-      if (Array.isArray(data)) {
-        if (passedId != null) {
-          const found = data.find((r: any) => String(r.id) === String(passedId));
-          setRestaurant(found ?? data[0] ?? null);
-        } else {
-          setRestaurant(data[0] ?? null);
-        }
-      }
-    };
-    setTimeout(load, 300);
-
-    // OPÇÃO 2: Tentar API externa (descomentar quando API estiver funcionando)
-    /*
     const load = async () => {
       try {
-        const res = await fetch("https://ebac-fake-api.vercel.app/api/efood/restaurantes");
+        const res = await fetch("https://api-ebac.vercel.app/api/efood/restaurantes");
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         if (!mounted) return;
@@ -69,7 +52,6 @@ const Perfil: React.FC = () => {
       }
     };
     load();
-    */
     
     return () => {
       mounted = false;

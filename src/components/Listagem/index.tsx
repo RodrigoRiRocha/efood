@@ -28,17 +28,7 @@ const Listagem: React.FC = () => {
   useEffect(() => {
     let mounted = true;
     
-    // OPÇÃO 1: Usar dados locais (comentar para usar API)
-    setTimeout(() => {
-      if (mounted) {
-        setRestaurantes(restaurantesData);
-        setLoading(false);
-      }
-    }, 500);
-
-    // OPÇÃO 2: Tentar API externa (descomentar quando API estiver funcionando)
-    /*
-    const url = "https://ebac-fake-api.vercel.app/api/efood/restaurantes";
+    const url = "https://api-ebac.vercel.app/api/efood/restaurantes";
 
     (async () => {
       try {
@@ -58,7 +48,6 @@ const Listagem: React.FC = () => {
         if (mounted) setLoading(false);
       }
     })();
-    */
 
     return () => {
       mounted = false;
@@ -66,7 +55,7 @@ const Listagem: React.FC = () => {
   }, []);
 
   // base da API (usado quando a API retorna caminhos relativos)
-  const API_BASE = "https://ebac-fake-api.vercel.app";
+  const API_BASE = "https://api-ebac.vercel.app";
 
   const normalizeImage = (img?: string) => {
     if (!img) return "";

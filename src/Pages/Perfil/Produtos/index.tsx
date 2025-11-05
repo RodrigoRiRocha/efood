@@ -16,7 +16,7 @@ interface Props {
   restaurant?: any | null;
 }
 
-const API_BASE = "https://ebac-fake-api.vercel.app";
+const API_BASE = "https://api-ebac.vercel.app";
 
 const normalizeImage = (img?: string) => {
   if (!img) return "";
