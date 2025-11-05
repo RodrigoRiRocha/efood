@@ -8,6 +8,7 @@ import {
   removeItem,
   type CartItem,
 } from '../../store/cartSlice';
+import { openCheckout } from '../../store/checkoutSlice';
 import * as S from './styles';
 import placeholderImg from '../../assets/pizza.png';
 
@@ -25,6 +26,11 @@ const Cart: React.FC = () => {
 
   const handleClose = () => {
     dispatch(closeCart());
+  };
+
+  const handleContinueToCheckout = () => {
+    dispatch(closeCart());
+    dispatch(openCheckout());
   };
 
   const formatPrice = (price: number) => {
@@ -85,7 +91,9 @@ const Cart: React.FC = () => {
               <S.TotalLabel>Valor total</S.TotalLabel>
               <S.TotalValue>R$ {formatPrice(total)}</S.TotalValue>
             </S.TotalSection>
-            <S.CheckoutButton>Continuar com a entrega</S.CheckoutButton>
+            <S.CheckoutButton onClick={handleContinueToCheckout}>
+              Continuar com a entrega
+            </S.CheckoutButton>
           </>
         )}
       </S.Sidebar>

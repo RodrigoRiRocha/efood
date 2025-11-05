@@ -6,6 +6,7 @@ import Apresentacao from "./Apresentacao";
 import Produtos from "./Produtos";
 import FooterPerfil from "./Footer_Perfil";
 import Cart from "../../components/Cart";
+import Checkout from "../../components/Checkout";
 import restaurantesData from "../../data/restaurantes.json";
 
 const Container = styled.div`
@@ -65,6 +66,7 @@ const Perfil: React.FC = () => {
       <Produtos restaurant={restaurant} />
       <FooterPerfil />
       <Cart />
+      <Checkout />
     </Container>
   );
 };
