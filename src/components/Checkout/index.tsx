@@ -16,6 +16,18 @@ import {
   type PaymentData,
 } from '../../store/checkoutSlice';
 import { selectCartItems, selectCartTotal, clearCart } from '../../store/cartSlice';
+import {
+  validateCEP,
+  validateCardNumber,
+  validateCVV,
+  validateMonth,
+  validateYear,
+  formatCEP,
+  formatCardNumber,
+  formatCVV,
+  formatMonth,
+  formatYear,
+} from '../../utils/validation';
 import * as S from './styles';
 
 const Checkout: React.FC = () => {
@@ -61,13 +73,26 @@ const Checkout: React.FC = () => {
       return;
     }
 
+    // Validate CEP format
+    if (!validateCEP(zipCode)) {
+      setError('CEP inválido. Digite 8 dígitos (ex: 01234-567)');
+      return;
+    }
+
+    // Validate number is a positive integer
+    const numberValue = parseInt(number);
+    if (isNaN(numberValue) || numberValue <= 0) {
+      setError('Número do endereço inválido');
+      return;
+    }
+
     const delivery: DeliveryData = {
       receiver,
       address: {
         description: address,
         city,
-        zipCode,
-        number: parseInt(number),
+        zipCode: zipCode.replace(/\D/g, ''), // Store only digits
+        number: numberValue,
         complement: complement || undefined,
       },
     };
@@ -87,10 +112,38 @@ const Checkout: React.FC = () => {
       return;
     }
 
+    // Validate card number
+    if (!validateCardNumber(cardNumber)) {
+      setError('Número do cartão inválido. Digite 16 dígitos');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate CVV
+    if (!validateCVV(cardCode)) {
+      setError('CVV inválido. Digite 3 dígitos');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate month
+    if (!validateMonth(cardMonth)) {
+      setError('Mês inválido. Digite um valor entre 01 e 12');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Validate year
+    if (!validateYear(cardYear)) {
+      setError('Ano inválido. Digite um ano válido (ex: 2025 ou posterior)');
+      setIsSubmitting(false);
+      return;
+    }
+
     const payment: PaymentData = {
       card: {
         name: cardName,
-        number: cardNumber,
+        number: cardNumber.replace(/\s/g, ''), // Store only digits
         code: parseInt(cardCode),
         expires: {
           month: parseInt(cardMonth),
@@ -202,7 +255,7 @@ const Checkout: React.FC = () => {
                     id="zipCode"
                     type="text"
                     value={zipCode}
-                    onChange={(e) => setZipCode(e.target.value)}
+                    onChange={(e) => setZipCode(formatCEP(e.target.value))}
                     placeholder="00000-000"
                     maxLength={9}
                     required
@@ -213,7 +266,7 @@ const Checkout: React.FC = () => {
                   <S.Label htmlFor="number">Número</S.Label>
                   <S.Input
                     id="number"
-                    type="number"
+                    type="text"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     placeholder="123"
@@ -265,9 +318,9 @@ const Checkout: React.FC = () => {
                   id="cardNumber"
                   type="text"
                   value={cardNumber}
-                  onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ''))}
+                  onChange={(e) => setCardNumber(formatCardNumber(e.target.value))}
                   placeholder="0000 0000 0000 0000"
-                  maxLength={16}
+                  maxLength={19}
                   required
                 />
               </S.InputGroup>
@@ -278,7 +331,7 @@ const Checkout: React.FC = () => {
                   id="cardCode"
                   type="text"
                   value={cardCode}
-                  onChange={(e) => setCardCode(e.target.value.replace(/\D/g, ''))}
+                  onChange={(e) => setCardCode(formatCVV(e.target.value))}
                   placeholder="123"
                   maxLength={3}
                   required
@@ -290,12 +343,11 @@ const Checkout: React.FC = () => {
                   <S.Label htmlFor="cardMonth">Mês de vencimento</S.Label>
                   <S.Input
                     id="cardMonth"
-                    type="number"
+                    type="text"
                     value={cardMonth}
-                    onChange={(e) => setCardMonth(e.target.value)}
+                    onChange={(e) => setCardMonth(formatMonth(e.target.value))}
                     placeholder="MM"
-                    min="1"
-                    max="12"
+                    maxLength={2}
                     required
                   />
                 </S.InputGroup>
@@ -304,11 +356,11 @@ const Checkout: React.FC = () => {
                   <S.Label htmlFor="cardYear">Ano de vencimento</S.Label>
                   <S.Input
                     id="cardYear"
-                    type="number"
+                    type="text"
                     value={cardYear}
-                    onChange={(e) => setCardYear(e.target.value)}
+                    onChange={(e) => setCardYear(formatYear(e.target.value))}
                     placeholder="AAAA"
-                    min="2025"
+                    maxLength={4}
                     required
                   />
                 </S.InputGroup>
